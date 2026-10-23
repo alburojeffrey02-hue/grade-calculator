@@ -4,9 +4,17 @@ def get_scores():
         entry = input("Enter a score (or 'done'): ").strip()
         if entry.lower() == "done":
             break
-        scores.append(float(entry))
+        try:
+            score = float(entry)
+        except ValueError:
+            print("Please enter a number.")
+            continue
+        if not 0 <= score <= 100:
+            print("Score must be between 0 and 100.")
+            continue
+        scores.append(score)
+        
     return scores
-
 def compute_average(scores):
     return sum(scores) / len(scores)
 
