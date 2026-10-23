@@ -15,8 +15,20 @@ def get_scores():
         scores.append(score)
         
     return scores
+
 def compute_average(scores):
     return sum(scores) / len(scores)
+
+def letter_grade(average):
+    if average >= 90:
+        return "A"
+    elif average >= 80:
+        return "B"
+    elif average >= 70:
+        return "C"
+    elif average >= 60:
+        return "D"
+    return "F"
 
 def main():
     scores = get_scores()
@@ -25,6 +37,7 @@ def main():
         return
     average = compute_average(scores)
     print(f"Average: {average:.2f}")
+    print(f"Letter grade: {letter_grade(average)}")
 
 
 if __name__ == "__main__":
