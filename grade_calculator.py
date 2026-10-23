@@ -7,10 +7,16 @@ def get_scores():
         scores.append(float(entry))
     return scores
 
+def compute_average(scores):
+    return sum(scores) / len(scores)
 
 def main():
     scores = get_scores()
-    print("Scores entered:", scores)
+    if not scores:
+        print("No scores entered.")
+        return
+    average = compute_average(scores)
+    print(f"Average: {average:.2f}")
 
 
 if __name__ == "__main__":
